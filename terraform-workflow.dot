@@ -1,0 +1,12 @@
+
+digraph G {
+    rankdir=LR;
+    node [shape=box, style=rounded, fillcolor="#dae8fc", color="#6c8ebf"];
+
+    CodeRepo [label="Code Repository\n(Cloud Source Repositories)"];
+    Terraform [label="Terraform Configuration"];
+    CloudResources [label="Google Cloud Resources\n(Compute, Storage, Networking)"];
+
+    CodeRepo -> Terraform [label="Terraform Plan/Apply", color="#333", fontcolor="#333"];
+    Terraform -> CloudResources [label="Provision Resources", color="#333", fontcolor="#333"];
+}

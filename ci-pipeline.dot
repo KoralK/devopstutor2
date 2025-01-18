@@ -1,0 +1,14 @@
+
+digraph G {
+    rankdir=LR; // Left-to-right layout
+    node [shape=box, style=rounded, fillcolor="#dae8fc", color="#6c8ebf"];
+
+    CodeCheckin [label="Code Check-in\n(Cloud Source Repositories)"];
+    AutomatedTesting [label="Automated Testing\n(Unit Tests, Linting)"];
+    Build [label="Build\n(Cloud Build)"];
+    ArtifactStorage [label="Artifact Storage\n(Artifact Registry)"];
+
+    CodeCheckin -> AutomatedTesting [label="Trigger", color="#333", fontcolor="#333"];
+    AutomatedTesting -> Build [label="Tests Pass", color="#333", fontcolor="#333"];
+    Build -> ArtifactStorage [label="Store Artifact", color="#333", fontcolor="#333"];
+}

@@ -1,0 +1,16 @@
+
+digraph G {
+    rankdir=LR;
+    node [shape=box, style=rounded, fillcolor="#dae8fc", color="#6c8ebf"];
+
+    CloudBuild [label="Cloud Build"];
+    ArtifactRegistry [label="Artifact Registry"];
+    VulnerabilityScan [label="Vulnerability Scan"];
+    BinaryAuth [label="Binary Authorization"];
+    GKE [label="Google Kubernetes Engine (GKE)"];
+
+    CloudBuild -> ArtifactRegistry [label="Push Image", color="#333", fontcolor="#333"];
+    ArtifactRegistry -> VulnerabilityScan [label="Scan Image", color="#333", fontcolor="#333"];
+    VulnerabilityScan -> BinaryAuth [label="Verify", color="#333", fontcolor="#333"];
+    BinaryAuth -> GKE [label="Deploy", color="#333", fontcolor="#333"];
+}

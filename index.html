@@ -24,6 +24,8 @@
           <li><strong>Build:</strong> If the tests pass, a deployment package (such as a Docker image or Java archive) is created.</li>
           <li><strong>Artifact Storage:</strong> The built artifact is stored in an artifact registry.</li>
         </ul>
+        <!-- CI Pipeline Diagram -->
+        <img src="ci-pipeline.svg" alt="CI Pipeline" class="diagram">
       </div>
 
       <div class="section">
@@ -82,6 +84,8 @@
           <li>If no vulnerabilities are detected (or vulnerabilities are acceptable), a trusted identity (attestor) signs the image.</li>
           <li>Binary Authorization in GKE verifies the signature before a container can be deployed on GKE.</li>
         </ol>
+        <!-- Binary Authorization Diagram -->
+        <img src="binary-authorization.svg" alt="Binary Authorization" class="diagram">
       </div>
     </div>
 
@@ -127,6 +131,8 @@
           <li>Resource Management</li>
           <li>HashiCorp Configuration Language (HCL)</li>
         </ul>
+        <!-- Terraform Workflow Diagram -->
+        <img src="terraform-workflow.svg" alt="Terraform Workflow" class="diagram">
       </div>
 
       <div class="section">
@@ -153,6 +159,8 @@
           <li>Store a built image in Artifact Registry.</li>
           <li>Create a build trigger for automatic build when changes to the repo.</li>
         </ol>
+        <!-- DevOps Pipeline Diagram -->
+        <img src="devops-pipeline.svg" alt="DevOps Pipeline" class="diagram">
       </div>
     </div>
 

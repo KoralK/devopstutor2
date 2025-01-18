@@ -1,0 +1,14 @@
+
+digraph G {
+    rankdir=LR;
+    node [shape=box, style=rounded, fillcolor="#dae8fc", color="#6c8ebf"];
+
+    CodeRepo [label="Code Repository\n(Cloud Source Repositories)"];
+    CloudBuild [label="Cloud Build"];
+    ArtifactRegistry [label="Artifact Registry"];
+    Deployment [label="Deployment\n(GKE, Cloud Run, etc.)"];
+
+    CodeRepo -> CloudBuild [label="Trigger", color="#333", fontcolor="#333"];
+    CloudBuild -> ArtifactRegistry [label="Store Artifact", color="#333", fontcolor="#333"];
+    ArtifactRegistry -> Deployment [label="Deploy", color="#333", fontcolor="#333"];
+}
