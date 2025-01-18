@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevOps Automation with Google Cloud</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="tutorial-container">
+    <h1>DevOps Automation with Google Cloud</h1>
+    <p class="intro">This tutorial introduces the core concepts of DevOps automation using Google Cloud Platform (GCP). We'll explore how to build automated pipelines for integrating, delivering, and deploying code using services like Cloud Source Repositories, Cloud Build, Artifact Registry, and Terraform for Infrastructure as Code (IaC).</p>
+
+    <!-- Module 1: Continuous Integration Pipelines -->
+    <div class="module">
+      <h2>Module 1: Continuous Integration Pipelines</h2>
+      <div class="section">
+        <h3>1.1 What is a Continuous Integration (CI) Pipeline?</h3>
+        <p>Continuous integration is an automation practice used in DevOps that integrates code changes into a shared repository as frequently as possible. A CI pipeline automates the process of building, testing, and packaging your applications after each code change.</p>
+        <h4>Here’s a basic CI pipeline workflow:</h4>
+        <ul>
+          <li><strong>Code Check-in:</strong> Developers commit code changes to a version control repository.</li>
+          <li><strong>Automated Testing:</strong> Unit tests are run automatically. Additional steps can include linting and static code analysis.</li>
+          <li><strong>Build:</strong> If the tests pass, a deployment package (such as a Docker image or Java archive) is created.</li>
+          <li><strong>Artifact Storage:</strong> The built artifact is stored in an artifact registry.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h3>1.2 Google Cloud Services for CI</h3>
+        <p>Google Cloud provides several services to build a complete CI pipeline:</p>
+        <ul>
+          <li><strong>Cloud Source Repositories:</strong> A private Git repository service hosted on Google Cloud for collaboration and version control.</li>
+          <li><strong>Cloud Build:</strong> A service that executes builds on Google Cloud infrastructure by importing source code, running build steps, and creating artifacts.</li>
+          <li><strong>Artifact Registry:</strong> A single place for managing Docker images and other deployment packages with fine-grained access control and vulnerability scanning.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h3>1.3 Cloud Source Repositories</h3>
+        <p>Cloud Source Repositories are managed Git repositories hosted in the cloud. Key features include:</p>
+        <ul>
+          <li>Private Repositories</li>
+          <li>IAM Integration</li>
+          <li>Pub/Sub Notifications</li>
+          <li>Audit Logging</li>
+          <li>App Engine Deployment</li>
+          <li>GitHub/Bitbucket Integration</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h3>1.4 Cloud Build</h3>
+        <p>Cloud Build is a fully managed serverless CI/CD platform that lets you execute your builds on Google Cloud infrastructure.</p>
+        <ul>
+          <li>Source Code Integration</li>
+          <li>Customizable Builds</li>
+          <li>Pre-Built Cloud Builders</li>
+          <li>Build Triggers</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h3>1.5 Artifact Registry</h3>
+        <p>Artifact Registry is Google Cloud's fully managed artifact storage service for container images and other deployment packages:</p>
+        <ul>
+          <li>Docker Image Storage</li>
+          <li>CI/CD Integration</li>
+          <li>Deployment to various environments</li>
+          <li>Vulnerability Scanning</li>
+          <li>Fine-Grained Access Control</li>
+          <li>Docker Protocol Support</li>
+          <li>Artifact Analysis</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h3>1.6 Binary Authorization</h3>
+        <p>Binary authorization is used to enforce deployment policies. The workflow involves Cloud Build, Artifact Registry, and Google Kubernetes Engine (GKE):</p>
+        <ol>
+          <li>A container image is created, and a vulnerability scan is performed, storing data in Artifact Analysis.</li>
+          <li>If no vulnerabilities are detected (or vulnerabilities are acceptable), a trusted identity (attestor) signs the image.</li>
+          <li>Binary Authorization in GKE verifies the signature before a container can be deployed on GKE.</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Module 2: Infrastructure as Code (IaC) -->
+    <div class="module">
+      <h2>Module 2: Infrastructure as Code (IaC)</h2>
+      <div class="section">
+        <h3>2.1 The Cloud Mindset Shift</h3>
+        <p>Moving to the cloud requires a shift in how you manage infrastructure. Instead of owning and maintaining physical machines, you rent resources as you need them and turn them off when they're not required.</p>
+        <h4>Key differences from traditional infrastructure include:</h4>
+        <ul>
+          <li>On-Demand Provisioning</li>
+          <li>Pay-Per-Use Model</li>
+          <li>Scale-Out Architecture</li>
+          <li>Disposable Infrastructure</li>
+          <li>Infrastructure as a Monthly Operating Expense</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h3>2.2 What is Infrastructure as Code?</h3>
+        <p>Infrastructure as Code (IaC) is the practice of managing infrastructure through code instead of manually configuring systems.</p>
+        <h4>Key benefits of IaC:</h4>
+        <ul>
+          <li>Automation</li>
+          <li>Consistency</li>
+          <li>Repeatability</li>
+          <li>Version Control</li>
+          <li>Scalability</li>
+          <li>Disposable environments</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h3>2.3 Terraform for IaC</h3>
+        <p>Terraform is a popular tool for IaC. It's a declarative configuration tool that allows you to define the desired infrastructure in configuration files, and then Terraform manages the underlying APIs for you.</p>
+        <h4>Key features of Terraform:</h4>
+        <ul>
+          <li>Declarative Configuration</li>
+          <li>Modular Design</li>
+          <li>Multi-Cloud Support</li>
+          <li>Parallel Deployments</li>
+          <li>Resource Management</li>
+          <li>HashiCorp Configuration Language (HCL)</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h3>2.4 Terraform Configuration Structure</h3>
+        <p>A basic Terraform configuration file includes:</p>
+        <ul>
+          <li>Provider Block</li>
+          <li>Resource Blocks</li>
+          <li>Output Blocks</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Module 3: Practical Example - Building a DevOps Pipeline -->
+    <div class="module">
+      <h2>Module 3: Practical Example - Building a DevOps Pipeline</h2>
+      <div class="section">
+        <p>In this lab, you will build a CI/CD pipeline:</p>
+        <ol>
+          <li>Create a Cloud Source Repositories git repo.</li>
+          <li>Develop a simple Python web application.</li>
+          <li>Define a Dockerfile.</li>
+          <li>Set up a build using Cloud Build.</li>
+          <li>Store a built image in Artifact Registry.</li>
+          <li>Create a build trigger for automatic build when changes to the repo.</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Conclusion -->
+    <div class="module">
+      <h2>Conclusion</h2>
+      <p>Using Google Cloud's DevOps tools enables you to automate the entire software delivery process. By using services like Cloud Source Repositories, Cloud Build, and Artifact Registry, you can build efficient CI pipelines, while Terraform allows you to manage infrastructure as code, achieving faster, more reliable, and more consistent deployments.</p>
+    </div>
+  </div>
+</body>
+</html>
